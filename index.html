@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>electrojam.in — Beta</title>
-    <style>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>electrojam.in — Beta</title>
+        <style>
       * { box-sizing: border-box; }
       html, body { height: 100%; }
       body {
@@ -14,7 +14,6 @@
         color: #cfe0ff;
         background: linear-gradient(180deg,#0e1a2a,#0a1523);
       }
-
       :root{
         --gap: clamp(10px, 1.6vh, 20px);
         --pad-top: clamp(2px, 0.9vh, 10px);
@@ -24,125 +23,90 @@
         --badge-h: calc(var(--badge-w) * 1.5);
         --cta-h: 64px;
       }
-
       .page{
-        min-height: 100svh;
-        display: grid;
-        grid-template-rows: auto 1fr auto; /* header / player / ctas */
-        align-content: start;
-        justify-items: center;
-        row-gap: var(--gap);
-        padding-top: var(--pad-top);
+        min-height:100svh; display:grid;
+        grid-template-rows:auto 1fr auto; /* badge+logo / player / buttons */
+        align-content:start; justify-items:center;
+        row-gap:var(--gap); padding-top:var(--pad-top);
       }
-
-      /* Header (badge + logo) */
-      .hero-wrap{ width: var(--content-w); display: grid; justify-items: center; }
-      .badge-hero{ margin: 4px 0 6px; }
+      .hero-wrap{ width:var(--content-w); display:grid; justify-items:center; }
+      .badge-hero{ margin:4px 0 6px; }
       .badge-hero img{
-        width: var(--badge-w);
-        height: auto;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0,0,0,.45);
-        filter: drop-shadow(0 0 8px rgba(59,130,246,.25));
+        width:var(--badge-w); height:auto; border-radius:16px;
+        box-shadow:0 8px 24px rgba(0,0,0,.45);
+        filter:drop-shadow(0 0 8px rgba(59,130,246,.25));
       }
       .hero-logo{
-        width: var(--content-w);
-        height: auto;
-        max-height: var(--logo-max-h);
-        margin: 0 auto;
-        filter: drop-shadow(0 6px 16px rgba(0,0,0,.35));
+        width:var(--content-w); height:auto; max-height:var(--logo-max-h);
+        margin:0 auto; filter:drop-shadow(0 6px 16px rgba(0,0,0,.35));
       }
-
-      /* Player */
       .player{
-        width: 100%;
-        display: grid;
-        place-items: center;
-        padding: 0 16px;
+        width:100%; display:grid; place-items:center; padding:0 16px;
         --remain-h: calc(100svh - var(--pad-top) - var(--logo-max-h) - var(--badge-h) - var(--cta-h) - 3*var(--gap));
       }
       .player iframe{
-        display: block;
-        aspect-ratio: 16 / 9;
-        width: min(var(--content-w), calc(var(--remain-h) * 16 / 9));
-        max-width: var(--content-w);
-        height: auto;
-        min-height: 220px;
-        border: none;
-        border-radius: 12px;
-        background: #000;
-        box-shadow: 0 12px 32px rgba(0,0,0,.4);
+        display:block; aspect-ratio:16/9;
+        width:min(var(--content-w), calc(var(--remain-h) * 16 / 9));
+        max-width:var(--content-w); height:auto; min-height:220px;
+        border:none; border-radius:12px; background:#000;
+        box-shadow:0 12px 32px rgba(0,0,0,.4);
       }
+      .ctas{ display:flex; gap:12px; justify-content:center; align-items:center; margin-bottom:var(--gap); }
 
-      /* Buttons */
-      .ctas{ display: flex; gap: 12px; justify-content: center; align-items: center; margin-bottom: var(--gap); }
-      .btn{
-        background: #3a66ff;
-        color: #fff;
-        border: none;
-        padding: 10px 18px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: 600;
-        box-shadow: 0 6px 18px rgba(58,102,255,.3);
-        text-decoration: none;
-        display: inline-block;
-      }
-      .btn:hover{ background: #2f54d8; }
-
-      /* Optional: ticket-stub accent on the Buy button */
+      /* Ticket-stub CTA */
       .ticket-btn{
         position: relative;
         background: #3a66ff;
         color: #fff;
-        padding: 12px 28px 12px 38px; /* room for stub notch */
+        padding: 12px 28px 12px 38px; /* room for stub edge */
         border-radius: 12px;
         text-decoration: none;
         font-weight: 700;
         letter-spacing: .2px;
         box-shadow: 0 6px 18px rgba(58,102,255,.30);
-        display: inline-flex;
-        align-items: center;
-        gap:10px;
+        display:inline-flex; align-items:center; gap:10px;
       }
       .ticket-btn:hover{ background:#2f54d8; }
-      .ticket-btn:before{
+      /* perforation notch */
+      .ticket-btn::before{
         content:"";
         position:absolute; left:18px; top:50%; transform:translateY(-50%);
         width:12px; height:12px; border-radius:50%;
-        background: radial-gradient(circle at 50% 50%, #9a1523 60%, rgba(10,21,35,.0) 61%);
-        box-shadow: 0 0 2px rgba(255,255,255,.08) inset;
+        background: radial-gradient(circle at 50% 50%, #0a1523 60%, rgba(10,21,35,0) 61%);
+        box-shadow: 0 0 0 2px rgba(255,255,255,.08) inset;
       }
+      /* tiny ticket icon bar */
+      .ticket-tag{
+        display:inline-block; width:18px; height:12px; border-radius:3px;
+        background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.35));
+      }
+
+      .btn-secondary{
+        background:#3a66ff; color:#fff; border:none; padding:10px 18px; border-radius:10px;
+        cursor:pointer; font-weight:600; box-shadow:0 6px 18px rgba(58,102,255,.3);
+      }
+      .btn-secondary:hover{ background:#2f54d8; }
     </style>
-  </head>
-  <body>
-    <div class="page">
-      <!-- Header: BADGE + LOGO -->
-      <div class="hero-wrap">
-        <div class="badge-hero">
-          <img src="BADGE.png" alt="Protected by Electrojam.in badge">
+    </head>
+    <body>
+        <div class="page">
+            <!-- Header: BADGE + LOGO -->
+            <div class="hero-wrap">
+                <div class="badge-hero">
+                    <img src="ASSETS/IMAGES/BADGE.png" alt="Protected by Electrojam.in badge">
+                </div>
+                <img src="ASSETS/IMAGES/hero-header.png" alt="electrojam.in logo" class="hero-logo"/>
+            </div>
+            <!-- Player -->
+            <div class="player">
+                <iframe src="https://player.castr.com/vod/kJROzdDXMiuOokrI" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!-- Buttons -->
+            <div class="ctas">
+                <!-- LIVE Stripe Payment Link --><a class="ticket-btn" href="https://buy.stripe.com/dRm4gs0iteXQc5mgs39fW00" target="_blank" rel="noopener"> <span class="ticket-tag" aria-hidden="true"></span>
+          Join the Beta </a>
+                <button class="btn-secondary">Toggle Chat</button>
+            </div>
         </div>
-        <img src="hero-header.png" alt="electrojam.in logo" class="hero-logo"/>
-      </div>
-
-      <!-- Player -->
-      <div class="player">
-        <!-- If this id changes later, just replace the src -->
-        <iframe
-          src="https://player.castr.com/vod/kJROzdDXMiuOokrI"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <!-- Buttons -->
-      <div class="ctas">
-        <!-- LIVE Stripe Payment Link -->
-        <a class="ticket-btn" href="https://buy.stripe.com/dRm4gs0iteXQc5mgs39fW00" target="_blank" rel="noopener">
-          Join the Beta
-        </a>
-        <button class="btn" onclick="alert('Chat panel coming soon!')">Toggle Chat</button>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>
