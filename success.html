@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Thank You | Electrojam.in</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Inter', sans-serif;
+                background: radial-gradient(circle at top, #0a1630 0%, #020812 100%);
+                color: #cde3ff;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            /* bigger badge */
+            .badge {
+                width: 180px;              /* was 130px */
+                margin-bottom: 25px;
+                margin-top: -70px;         /* was -40px — lifts it up */
+                opacity: 0.95;
+                transition: transform 0.4s ease, opacity 0.4s ease;
+            }
+
+            .badge:hover {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+                color: #4db8ff;
+            }
+
+            p {
+                max-width: 600px;
+                margin: 0 auto 25px;
+                line-height: 1.6;
+                font-size: 1.05rem;
+            }
+
+            .button-main {
+                background-color: #007bff;
+                color: #fff;
+                padding: 14px 30px;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                font-size: 1rem;
+                box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+                transition: background 0.2s ease;
+                text-decoration: none;
+                margin-bottom: 12px;
+                display: inline-block;
+            }
+
+            .button-main:hover {
+                background-color: #339cff;
+            }
+
+            .note {
+                font-size: 0.95rem;
+                color: #a0c8ff;
+                margin-bottom: 20px;
+            }
+
+            footer {
+                position: absolute;
+                bottom: 15px;
+                font-size: 0.85rem;
+                opacity: 0.7;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="ASSETS/IMAGES/badge.png" alt="Protected by Electrojam" class="badge"/>
+        <h1>Thank You for Joining <span style="color:#79c9ff;">Beta 1</span></h1>
+        <p>
+            This short Beta session (around 15 minutes) is designed to stress test our livestream system.  
+            If you can, drop a message in the chat to let us know how video and audio perform.   <br><br>
+            But most importantly — sit back, grab your best headphones, and chill with me for a bit. </p>
+        <p class="note">
+            👉 Please log in <strong>5 minutes before showtime</strong> using the link below. </p><a href="index.html" class="button-main">Join the Show Now</a>
+        <p style="margin-top: 15px; font-size: 0.95rem;">
+            Show time: <strong>Friday, Nov 7th — 8:00 PM</strong> </p>
+        <footer><em>In this age of A.I., it’s vital that human-made art continues. Thank you for supporting it.</em>
+        </footer>
+    </body>
+</html>
