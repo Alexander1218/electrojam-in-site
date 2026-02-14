@@ -193,7 +193,8 @@
           document.body.classList.toggle('is-theater', on);
           theaterBtn.setAttribute('aria-pressed', String(on));
           theaterBtn.textContent = on ? 'Exit Theater' : 'Theater';
-          setChatOpen(on);
+         if (on) setChatOpen(false);
+
         }
 
         theaterBtn.addEventListener('click', () => setTheater(!document.body.classList.contains('is-theater')));
